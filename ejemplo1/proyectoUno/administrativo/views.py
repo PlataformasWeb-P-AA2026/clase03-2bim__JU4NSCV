@@ -45,3 +45,14 @@ def listadoEstudiantesDos(request):
     'numero_estudiantes': len(estudiantes),
     'mis_numeros_telefonicos': mis_numeros_telefonicos}
     return render(request, 'listadoEstudiantesDos.html', informacion_template)
+
+
+def listadoEstudiantesPersonalizado(request):
+    """
+    Listar los registros del modelo Estudiante,
+    obtenidos de la base de datos.
+    """
+    estudiantes = Estudiante.objects.all()
+    informacion_template = {'estudiantes': estudiantes,
+    'numero_estudiantes': len(estudiantes)}
+    return render(request, 'listadoEstudiantesPersonalizado.html', informacion_template)

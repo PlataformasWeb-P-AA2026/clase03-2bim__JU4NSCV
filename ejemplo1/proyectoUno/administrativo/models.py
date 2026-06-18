@@ -12,6 +12,9 @@ class Estudiante(models.Model):
                 self.apellido,
                 self.cedula)
 
+    def num_telefonos(self):
+        return len(self.mis_numeros_telefonicos.all())
+
 class NumeroTelefonico(models.Model):
     telefono = models.CharField(max_length=100)
     tipo = models.CharField(max_length=100)
