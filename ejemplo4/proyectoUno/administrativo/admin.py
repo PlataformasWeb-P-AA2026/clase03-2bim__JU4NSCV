@@ -1,7 +1,8 @@
+# pyrefly: ignore [missing-import]
 from django.contrib import admin
 
 # Importar las clases del modelo
-from administrativo.models import Estudiante, NumeroTelefonico
+from administrativo.models import Estudiante, NumeroTelefonico, Pais
 
 # Agregar la clase Estudiante para administrar desde
 # interfaz de administración
@@ -42,4 +43,14 @@ class NumeroTelefonicoAdmin(admin.ModelAdmin):
     # se desee
     raw_id_fields = ('estudiante',)
 
+class PaisesAdmin(admin.ModelAdmin):
+    # listado de atributos que se mostrará
+    # por cada registro
+    # se deja de usar la representación (str) 
+    # de la clase 
+    list_display = ('nombre', 'capital', 'numero_provincias', 'numero_habitantes')
+    search_fields = ('nombre', 'capital', 'numero_provincias', 'numero_habitantes')
+
+
 admin.site.register(NumeroTelefonico, NumeroTelefonicoAdmin)
+admin.site.register(Pais, PaisesAdmin)

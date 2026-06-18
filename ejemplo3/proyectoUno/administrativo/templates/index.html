@@ -1,5 +1,3 @@
-
-
 <h3><b>Número de estudiantes {{ numero_estudiantes }}</b></h3>
 
 
@@ -30,16 +28,16 @@
       <ul>
         {% for numero in e.mis_numeros_telefonicos.all %}
         <li>
-            {{numero.telefono}}<br/>
+          {{numero.telefono}}<br />
         </li>
-    {% endfor %}
+        {% endfor %}
       </ul>
 
-</td>
-<td>
-[<a href="{% url 'obtener_estudiante' e.id %}">ver</a>]
+    </td>
+    <td>
+      [<a href="{% url 'obtener_estudiante' e.id %}">ver</a>]
 
-</td>
+    </td>
   </tr>
   {% endfor %}
 
